@@ -1,0 +1,169 @@
+caniuse.com                                 // used for checking whether given css is supported or not                        
+<a href="#intro">Intro</a>                  // if you click on Intro link then it will place you to that section where intro id is.
+.....
+.....
+<section id="intro"><p>this is the intro section</p></section>
+
+p{color:red !important;}                   // if there is <p> paragraph has given another color with other css though important will force P paragraph to make in red. 
+
+section{
+		background : #ff1b68;       
+	}
+h1{
+	font-family : sans-serif;    // try google fonts for new fonts
+	font-family: inherit;        // it will get the style of parent fonts like body's font  
+  }
+body{
+	font-family: serif;
+	background: url("photo.jpg");         // add background photo 
+	}
+a{
+	text-decoration: none;        //  remove underline from a link
+	font-weight: bold;
+	font-size: 22px;
+}
+
+a.classname{color:white;}
+a#idname{color:white;}
+
+a:hover{ color:red; }                  // change color of link when we set mouse over it               <- pseudo class
+a:active{ color:red;}                  // change color of link when we hold clicking or pressing it    <- pseudo class
+a:hover,a:active{ color:red;}          // merging in one line or say that it shares same property.
+p:first-of-type{}                      // change only first P from many P's group in many or one section
+
+p::first-letter{color:blue; font-size:25px;}   // it will Change first letter of paragraph              <- pseudo element
+a::after{ content: " this part will be added"; color:red;}         // it will add given content after actual link in red color <- pseudo element
+
+For CTA button -> a{color:black; background:yellow; padding:8px 16px; border-radius:8px;}      // border radius gives round shape at corner of border
+		  a:hover,a:active{color:yellow; background:black; border:none}                // use alternative color and background to look good
+--------------------------------------------------------selector----------------------------------------------------------------------------------------
+class->	you can give same name too
+	.class-name{
+			}
+id->  unique in whole page
+	#id-name{
+			}
+universal-> applied to whole page
+	*{
+		}
+attributes -> 
+	[disabled]{
+		}
+-----------------------------------------------------Specificity-----------------------------------------------------------------------------------------
+Inline styles > #ID selectors > .class, :pseudo-class and [attribute] selectors > <Tag> and ::pseudo-element selectors
+-----------------------------------------------------Combinators-----------------------------------------------------------------------------------------
+Adjacent Sibling -> h2+p{ color:red; }                 // it will make P paragraph to red color which is followed by H2 directly.But not make H2 line to red.
+		 -> h2+P+a{}                           // same as above but A must has to follow P directly.
+General Sibling  -> h2~p{ }                            // it will follow H2 but it it is not directly then also it allows to do style.
+		 -> h2~p~a{}			       // same as above it is not needed to follow P directlty.  
+Child            -> div>p{}				// second element is a direct child of first elememt.
+		 -> div>p>a{}				      ||
+Descendant	 -> div p{}				// second element is a descendant of a first element.
+=========================================================================================================================================================
+margin - border - padding - content
+=========================================================================================================================================================
+margin: 5px 10px 5px 10px; //top right bottom left
+margin: 5px 10px;   	   // top&bottom left&right
+margin: 10px;		   // all sides
+=========================================================================================================================================================
+*{
+	box-sizing : border-box;
+ }
+=========================================================================================================================================================
+display:block;
+display:inline;
+display:inline-block;
+display:none;          // it is part of DOM but not shown in web page & it's will be allocated to next element
+    vs
+visibility:hidden;     // The element is only invisible, it's not removed from the document flow and of course also not from the DOM. So it's space not allocated to next element.
+===========================================================================================================================================================
+Additionally, setting a width  or height  on an inline element also has no effect. The width and height is auto to take as much space as required by the content
+===========================================================================================================================================================
+width: calc(100% - 49px);           // CSS has calc function itself nad space is required before and after - (minus).
+
+Space in our editor is the problem when you are deal with inline-block element..... So, remove all spaces in editor where it's required...like <div><nav>...not make space between Div and Nav element.
+===================================================================================================================================================
+vertical-align: middle;
+text-align: center;
+===================================================================================================================================================
+• px or % (or other units)
+• % refers to container
+• width and height
+• box-sizing can be
+  content-box (default) or
+  border-box
+===================================================================================================================================================
+color: #ffc19cd; or #aa6 or red or rgb(30,255,0) or rgba(30,255,0,0.5) //rgba (a) for transparency 0-full 1-not
+box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+	     x   y blur spread ColorOfShadow
+list-style:none;                                                 // it will style list to none like remove bullets from unordered list.
+.button{
+	cursor:pointer;                                                  // it will transform arrow into hand type pointer when mouse over there.
+	}
+.button:focus{
+		outline:none;
+	     }
+=====================================================================================================================================================
+{float:right;}							// float to right side
+but when u use this then that space is set with next section or block or anything. So solution is to use,,,
+any <div class="clearfix"></div>
+and .clearfix{ clear:both;}
+===========================================================================================================================================================================
+
+position:fixed;
+position:absolute;				//
+position:relative;				// it refers to current position.
+position:sticky;				// cominition of relative and fixed
+overflow:hidden;                                // hide outside the part outside the parent area.
+============================================================================================================================================================================
+{	background-image:url(" ");
+	background-size:cover;						// it will cover whole block with image but it will may crop the image to fit.
+ 	background-size:contain;					// it will fit whole image but it may possible to there some space is free in block.
+	background-repeat:no-repeat; or repeat-x or repeat-y;	        // if you giver width and heifht manually it may repeat that's dimension image many times.So this code will adjust it.
+	background-position:20px 50px;         // it will give space to left side nad top side 20px & 50px respectively.
+	background-position:0% 10%;            // it will fix left side of image with base of block on left side. it will crop 10% to top so image will place some down.
+	background-position:0% 50%;	       // it will fix left side of image with base of block on left side. but there is no 50% crop available to fix in block so it will crop both top & bottom 50% and fix in block.
+	background-position:0% 100%;	       // it will fix left side of image with base of block on left side. it will 100% crop on top and bottom of image no cut so we can see all bottom.
+	background-position:center;            // center means 50% 50%. so 50% will crop left right top & bottom. Center of the image will be the center of the container.
+	background-position:left top;        // means 0% 0%. No crop in left and top of image.
+	background-position:left bottom;     // No crop in left and bottom of image.
+	background-position:left 10% botttom 20%;    // it will crop 10% in left and 20% in bottom.
+ 	background-origin:border-box;		// it will set actual border on image part so white space issue with dashed border solved.
+	background-origin:content-box;		// container without padding and without border. 
+	background-origin:padding-box;		// this is default.Means Container including content and padding but not the border. 
+	background-clip: pading-box;		// this will give border empty means whith white spaces in dashed border.
+	background-attachment: fixed; or local or scroll   // for backgrounf attachment.
+	background: url(" ") left 10% bottom 20%/cover no-repeat  border-box;        or ...boder-box padding-box;       //combine in one line
+		    bg-image   bg-position      bg-size bg-repeat bg-origin&bg-clip        bg-origin bg-clip
+	border: 1px dashed black;
+}
+=========================================================================================================================================================
+{
+	background-image: linear-gradient(red,blue);                             // default top to bottom
+	background-image: linear-gradient(to right,red,blue);
+	background-image: linear-gradient(to left bottom,red,blue);
+	background-image: linear-gradient(30deg,red,blue);
+	background-image: linear-gradient(red,blue,green,yellow,pink);
+	background-image: linear-gradient(180deg,red,transparent);
+	background-image: linear-gradient(180deg,red,rgba(0,0,0,0.5));
+	background-image: linear-gradient(180deg,red 70%,blue 80%,rgba(0,0,0,0.5));       // 70% perfect red then started fadding till 80% reach and now blue started
+	background-image: linear-gradient(180deg,red 70%,blue 60%,rgba(0,0,0,0.5));	// 60% perfect red and immediately started blue color without fadding.
+	background-image: radial-gradient(red,blue,green);                         // ellipse in three colour -start middle of image
+	background-image: radial-gradient(circle,red,blue,green);                  // circle in three color  -start middle of image
+	background-image: radial-gradient(circle at top,red,blue,green);	   //  ||      ||       ||   -start middle of top
+	background-image: radial-gradient(circle at top left,red,blue,green);	   // top left center : corner 
+	background-image: radial-gradient(circle at 20% 50%,red,blue,green);	   // 20% left and from 50% top
+	background-image: radial-gradient(circle 20px,red,blue,green);      	   // 20px circle with red and blue only
+	background-image: radial-gradient(ellipse 20px 30px,red,blue,green);	   // 20px width 30px height : vertical ellipse
+	background-image: radial-gradient(ellipse farthest-side at 20% 50%,red,blue,green);   // blue color shade will touch the outer line which is far to it's origin. in this case it's right side
+	background-image: radial-gradient(ellipse closest-side at 20% 50%,red,blue,green);   // blue color shade will touch the outer line which is close to it's origin
+	background-image: radial-gradient(ellipse farthest-corner at 20% 50%,red,blue,green); // same as above but touch farthest corner.
+	background-image: radial-gradient(ellipse farthest-corner at 20% 50%,red,blue 70%,green); //same as above but blue color has to stop after 70%.
+	background: radial-gradient(to top,rgba(80,68,18,0.6) 10%, transparent),url(" ") left 10% bottom 20%/cover no-repeat border-box, red;     // it will show gradient with our image at a same and in refreshment time it shows red color.
+	filter: grayscale(40%);                        // making graying background.
+	filter: blur(10px);				// makes blury
+	
+
+
+
+
