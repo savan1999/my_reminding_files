@@ -1,0 +1,55 @@
+!<tab key>      for prfedefined html code
+ctrl + ~ for Terminal
+ctrl + / for comment
+
+console.log("Hello savan");
+
+var fullName = "Savan Zalodiya";
+var email = "savan@abc.com";
+console.log("Full Name is: " + fullName);
+console.log("Full Name is: ", fullName);
+console.log(`                                      // ` is not ' // ` is on tild sign button
+	User is : ${fullName};        
+	Email Id is: ${email};
+`);
+
+fullName = prompt("Enter Your Name");
+alert("Signup");
+
+var discountPercent = ((listprice - sellprice)/listprice) * 100;
+displayDiscountPercentage = Math.round(discountPercent);
+console.log("Discount is : " + discountPercent);
+
+console.log(typeof result);                             // typeof data type
+
+return                                           // after return no code is running
+
+Undefined    null    0    ""    NaN (Not a Number)     <-- Falsy values
+
+var user = "2";                             |     var user = "2"; 
+if(2 == user)                            -- | --  if(2 === user)
+{                                           |     {
+	console.log("Condition is true");   |        console.log("Condition is true");
+}                                           |     }
+Output: Condition is true                   |     Output: Not show anything
+
+function sayHello(name){
+	console.log("Hello there, Savan");      					Hello there, Savan
+	console.log("Hello there, ", name);  or console.log(`Hello there, ${name}`);    Hello there, SA1
+}
+sayHello("SA1");            call to function
+sayHello;                   refer to function
+
+var getUserRole = function(name,role){ };             or           function getUserRole(name,role){ };
+
+if(nyName === myName){}                               or           if(nyName === window.myName){}          <--  Same for browser not for like node 
+
+U can first call and then declare function.
+  
+tipper("200");			        OR   var tipper = function(a)          |    x    tipper("200");                       <-- This is not Working 
+function tipper(a)                      |    {      			       |    x    var tipper = function(a)
+{                                       |        var bill = parseInt(a);       |    x     {       
+	var bill = parseInt(a);         |	 console.log(bill + 5);        |    x          var bill = parseInt(a);
+	console.log(bill + 5);          |     }                                |    x          console.log(bill + 5);
+}                                       |    tipper("200");                    |    x      } 
+
